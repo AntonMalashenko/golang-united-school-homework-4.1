@@ -3,11 +3,17 @@ package reverse_string
 func ReverseString(input string) (output string) {
 	input_len := len(input)
 	if input_len > 0 {
-		char_list := make([]rune, input_len, input_len)
-		for index, value := range input {
-			char_list[input_len-1-index] = value
+		temp_char_list := make([]rune, 0)
+		for _, value := range input {
+			temp_char_list = append(temp_char_list, value)
 		}
-		return string(char_list)
+
+		temp_len := len(temp_char_list)
+		output_char_list := make([]rune, temp_len)
+		for idx, val := range temp_char_list {
+			output_char_list[temp_len-1-idx] = val
+		}
+		return string(output_char_list)
 	}
 	return output
 }
